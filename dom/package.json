@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/noknow-hub/pkg-javascript/dom"
+    "url": "git+https://github.com/noknow-hub/pkg-javascript/dom.git"
   },
   "author": "noknow",
   "license": "MIT",
