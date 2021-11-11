@@ -1,0 +1,20 @@
+{
+  "name": "dom-javascript",
+  "version": "1.0.0",
+  "description": "DOM library.",
+  "main": "dom.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noknow-hub/pkg-javascript/dom"
+  },
+  "author": "noknow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noknow-hub/pkg-javascript/dom/issues"
+  },
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/dom#readme",
+  "type": "module"
+}

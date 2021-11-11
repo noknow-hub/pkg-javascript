@@ -1,0 +1,20 @@
+{
+  "name": "agent-detector-javascript",
+  "version": "1.0.0",
+  "description": "Agent detector.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noknow-hub/pkg-javascript/agent-detector"
+  },
+  "author": "noknow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noknow-hub/pkg-javascript/agent-detector/issues"
+  },
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/agent-detector#readme",
+  "type": "module"
+}
