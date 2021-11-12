@@ -1,0 +1,19 @@
+{
+  "name": "noknow-pkg",
+  "version": "1.0.0",
+  "description": "Utility packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noknow-hub/pkg-javascript.git"
+  },
+  "author": "noknow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noknow-hub/pkg-javascript/issues"
+  },
+  "homepage": "https://github.com/noknow-hub/pkg-javascript#readme"
+}
