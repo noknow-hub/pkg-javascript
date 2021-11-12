@@ -1,5 +1,5 @@
 {
-  "name": "dom-javascript",
+  "name": "noknow-dom",
   "version": "1.0.0",
   "description": "DOM library.",
   "main": "dom.js",
@@ -14,8 +14,8 @@
   "author": "noknow",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/noknow-hub/pkg-javascript/dom/issues"
+    "url": "https://github.com/noknow-hub/pkg-javascript/issues"
   },
-  "homepage": "https://github.com/noknow-hub/pkg-javascript/dom#readme",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/dom/README.md",
   "type": "module"
 }
