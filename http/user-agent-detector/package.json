@@ -1,21 +1,21 @@
 {
-  "name": "noknow-dom",
-  "version": "1.0.1",
-  "description": "DOM library.",
-  "main": "dom.js",
+  "name": "noknow-http-user-agent-detector",
+  "version": "1.0.0",
+  "description": "HTTP User Agent detector.",
+  "main": "user_agent_detector.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
-    "directory": "dom"
+    "directory": "http/user-agent-detector"
   },
   "author": "noknow",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/noknow-hub/pkg-javascript/issues"
   },
-  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/dom#readme",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/http/user-agent-detector#readme",
   "type": "module"
 }
