@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/noknow-hub/pkg-javascript.git"
+    "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
+    "directory": "."
   },
   "author": "",
   "license": "ISC",
