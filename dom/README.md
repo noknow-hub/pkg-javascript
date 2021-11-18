@@ -2,7 +2,7 @@
 
 ## Install
 
-```sh
+```console
 npm install noknow-dom
 ```
 

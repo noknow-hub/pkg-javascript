@@ -1,11 +1,13 @@
 {
-  "name": "@noknow/http-user-agent-detector",
-  "version": "1.0.0",
-  "description": "HTTP User Agent detector.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "noknow",
+  "bugs": {
+    "url": "https://github.com/noknow-hub/pkg-javascript/issues"
   },
+  "description": "HTTP User Agent detector.",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/http/user-agent-detector#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "@noknow/http-user-agent-detector",
   "publishConfig": {
     "access": "public"
   },
@@ -14,11 +16,9 @@
     "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
     "directory": "http/user-agent-detector"
   },
-  "author": "noknow",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/noknow-hub/pkg-javascript/issues"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/noknow-hub/pkg-javascript/http/user-agent-detector#readme",
-  "type": "module"
+  "type": "module",
+  "version": "1.0.0"
 }

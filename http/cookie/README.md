@@ -3,8 +3,8 @@
 
 ## Install
 
-```sh
-npm install @noknow/http/cookie
+```console
+npm i @noknow/http-cookie
 ```
 
 

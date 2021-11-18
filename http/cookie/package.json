@@ -7,7 +7,7 @@
   "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/http/cookie#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "@noknow/http/cookie",
+  "name": "@noknow/http-cookie",
   "publishConfig": {
     "access": "public"
   },

@@ -3,7 +3,7 @@
 
 ## Install
 
-```sh
+```console
 npm install noknow-http-user-agent-detector
 ```
 
