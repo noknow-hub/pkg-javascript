@@ -1,10 +1,13 @@
 {
-  "name": "noknow-http-user-agent-detector",
+  "name": "@noknow/http-user-agent-detector",
   "version": "1.0.0",
   "description": "HTTP User Agent detector.",
-  "main": "user_agent_detector.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",

@@ -3,18 +3,18 @@
   "bugs": {
     "url": "https://github.com/noknow-hub/pkg-javascript/issues"
   },
-  "description": "DOM library.",
-  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/dom#readme",
+  "description": "HTTP cookie library.",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/http/cookie#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "@noknow/dom",
+  "name": "@noknow/http/cookie",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
-    "directory": "dom"
+    "directory": "http/cookie"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
