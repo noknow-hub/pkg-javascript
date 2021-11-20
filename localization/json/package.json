@@ -1,0 +1,24 @@
+{
+  "author": "noknow",
+  "bugs": {
+    "url": "https://github.com/noknow-hub/pkg-javascript/issues"
+  },
+  "description": "Localization with JSON files.",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/http/cookie#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "@noknow/localization-json",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
+    "directory": "localization/json"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "version": "1.0.0"
+}
