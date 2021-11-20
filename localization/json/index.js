@@ -7,6 +7,8 @@
 //////////////////////////////////////////////////////////////////////
 class LocalizationJson {
 
+    static IS_LOADING = false;
+
     //////////////////////////////////////////////////////////////////////
     // Constructor.
     //////////////////////////////////////////////////////////////////////
@@ -15,8 +17,7 @@ class LocalizationJson {
         this.lsKeyPrefix = 'Localization.';
         this.lsKeyDate = this.lsKeyPrefix + 'date';
         this.lsExpiresDate = 3;
-        this.isLoading = false;
-        this.sleep = 3000;
+        this.sleepMS = 300;
         this.sleepCnt = 5;
         this.Strings = {};
 
@@ -28,10 +29,7 @@ class LocalizationJson {
     //////////////////////////////////////////////////////////////////////
     // Get localized string.
     //////////////////////////////////////////////////////////////////////
-    async String(langCode, key, defaultVal = key) {
-        // Check if it has been loading JSON file or not.
-        await this.queuing();
-
+    String(langCode, key, defaultVal = key) {
         if(this.Strings[langCode] == null) {
             return defaultVal;
         }
@@ -59,10 +57,20 @@ class LocalizationJson {
 
 
     //////////////////////////////////////////////////////////////////////
+    // Get localized string asynchronously.
+    //////////////////////////////////////////////////////////////////////
+    async StringAsync(langCode, key, defaultVal = key) {
+        // Check if it has been loading JSON file or not.
+        await this.queuing();
+
+        return this.String(langCode, key, defaultVal);
+    }
+
+
+    //////////////////////////////////////////////////////////////////////
     // HTTP GET request.
     //////////////////////////////////////////////////////////////////////
     getRequest(langCode, url) {
-        this.isLoading = true;
         new Promise((resolve, reject) => {
             const expires = new Date();
             expires.setDate(expires.getDate() + this.lsExpiresDate);
@@ -93,6 +101,9 @@ class LocalizationJson {
     // Load.
     //////////////////////////////////////////////////////////////////////
     async load(langCodeUrlMapList) {
+        // Check if it has been loading JSON file or not.
+        await this.queuing();
+
         // Check the localization in the local storage.
         const needLangCodeUrlMapList = [];
         const now = new Date();
@@ -125,7 +136,7 @@ class LocalizationJson {
         } catch(err) {
             throw new Error(err);
         } finally {
-            this.isLoading = false;
+            LocalizationJson.IS_LOADING = false;
         }
     }
 
@@ -134,14 +145,15 @@ class LocalizationJson {
     // Queuing.
     //////////////////////////////////////////////////////////////////////
     async queuing() {
-        if(this.isLoading) {
+        if(LocalizationJson.IS_LOADING) {
             for(let i = 0; i < this.sleepCnt; i++) {
                 await this.timer();
-                if(!this.isLoading) {
+                if(!LocalizationJson.IS_LOADING) {
                     break;
                 }
             }
         }
+        LocalizationJson.IS_LOADING = true;
     }
 
 
@@ -149,7 +161,7 @@ class LocalizationJson {
     // Timer.
     //////////////////////////////////////////////////////////////////////
     timer() {
-        return new Promise(resolve => setTimeout(resolve, this.sleep));
+        return new Promise(resolve => setTimeout(resolve, this.sleepMS));
     }
 
 }
