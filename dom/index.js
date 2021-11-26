@@ -75,19 +75,6 @@ class Dom {
 
 
     //////////////////////////////////////////////////////////////////////
-    // Remove all child elements.
-    //////////////////////////////////////////////////////////////////////
-    RemoveAllChildren(elm) {
-        if(elm == null) {
-            return;
-        }
-        while(elm.firstChild) {
-            elm.firstChild.remove();
-        }
-    }
-
-
-    //////////////////////////////////////////////////////////////////////
     // Set attribute list.
     // @params:
     //     attrList: Array: e.g. [{ name: 'NAME1', value: 'VALUE1' }, { name: 'NAME2', value: 'VALUE2' }]
@@ -193,6 +180,19 @@ class Dom {
             }
         }
         return this;
+    }
+
+
+    //////////////////////////////////////////////////////////////////////
+    // Remove all child elements.
+    //////////////////////////////////////////////////////////////////////
+    static RemoveAllChildren(elm) {
+        if(elm == null) {
+            return;
+        }
+        while(elm.firstChild) {
+            elm.firstChild.remove();
+        }
     }
 
 
