@@ -3,7 +3,7 @@
 ## Install
 
 ```console
-npm install noknow-dom
+npm install @noknow/dom
 ```
 
 ## Usage
