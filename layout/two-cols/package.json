@@ -3,22 +3,22 @@
   "bugs": {
     "url": "https://github.com/noknow-hub/pkg-javascript/issues"
   },
-  "description": "Drawer menu",
-  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/drawer-menu#readme",
+  "description": "Layout with two columns",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/layout/two-cols#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "@noknow/drawer-menu",
+  "name": "@noknow/layout-two-cols",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
-    "directory": "drawer-menu"
+    "directory": "layout/two-cols"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
-  "version": "0.1.5"
+  "version": "0.1.1"
 }
