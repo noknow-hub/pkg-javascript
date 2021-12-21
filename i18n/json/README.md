@@ -1,10 +1,10 @@
-# noknow-localization-json
+# noknow-i18n-json
 
 
 ## Install
 
 ```console
-npm i @noknow/localization-json
+npm i @noknow/i18n-json
 ```
 
 

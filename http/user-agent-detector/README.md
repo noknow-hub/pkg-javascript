@@ -4,7 +4,7 @@
 ## Install
 
 ```console
-npm install noknow-http-user-agent-detector
+npm install @noknow/http-user-agent-detector
 ```
 
 

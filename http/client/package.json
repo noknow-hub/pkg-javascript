@@ -3,22 +3,22 @@
   "bugs": {
     "url": "https://github.com/noknow-hub/pkg-javascript/issues"
   },
-  "description": "HTTP User Agent detector.",
-  "homepage": "https://github.com/noknow-hub/pkg-javascript/http/user-agent-detector#readme",
+  "description": "HTTP client library.",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/http/client#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "@noknow/http-user-agent-detector",
+  "name": "@noknow/http-client",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
-    "directory": "http/user-agent-detector"
+    "directory": "http/client"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
-  "version": "1.0.1"
+  "version": "0.1.2"
 }

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.nkw-drawer-menu {
+    bottom: 0;
+    display: block;
+    height: 100%;
+    max-width: 640px;
+    position: fixed;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    width: 80%;
+    z-index: 10;
+}
+.nkw-drawer-menu.left-side {
+    left: -100%;
+}
+.nkw-drawer-menu.left-side.active {
+    left: 0;
+}
+.nkw-drawer-menu.right-side {
+    right: -100%;
+}
+.nkw-drawer-menu.right-side.active {
+    right: 0;
+}
+.nkw-drawer-menu.active {
+    z-index: 100;
+}
+.nkw-drawer-menu > .nkw-drawer-menu-contents {
+    background-color: var(--nkw-background-color);
+    height: 100%;
+    overflow-y: scroll;
+    position: relative;
+    width: 100%;
+    z-index: 10;
+}
