@@ -25,6 +25,29 @@ class DrawerMenu {
         if(idElms === undefined || idElms === null || idElms.length === 0) {
             return;
         }
+        for(let i = 0; i < idElms.length; i++) {
+            const elm = idElms[i];
+            if(elm.myAttached !== undefined && elm.myAttached !== null && elm.myAttached) {
+                continue;
+            }
+            elm.myAttached = true;
+            elm.addEventListener('click', (event) => {
+                if(elm.classList.contains(DrawerMenu.ACTIVE_CLASS_NAME)) {
+                    let isInElm = false;
+                    for(let e = event.target; e !== undefined && e !== null; e = e.firstElementChild) {
+                        if(e === elm) {
+                            isInElm = true;
+                            break;
+                        }
+                    }
+                    if(isInElm) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        elm.classList.toggle(DrawerMenu.ACTIVE_CLASS_NAME);
+                    }
+                }
+            });
+        }
         for(let i = 0; i < targetElms.length; i++) {
             const targetElm = targetElms[i];
             if(targetElm.myAttached !== undefined && targetElm.myAttached !== null && targetElm.myAttached) {
@@ -41,29 +64,6 @@ class DrawerMenu {
                     if(targetVal === idVal) {
                         idElm.classList.toggle(DrawerMenu.ACTIVE_CLASS_NAME);
                         break;
-                    }
-                }
-            });
-        }
-
-        if(document.body.nkwDrawerMenuEventListener === undefined && document.body.nkwDrawerMenuEventListener === null || !document.body.nkwDrawerMenuEventListener) {
-            document.body.nkwDrawerMenuEventListener = true;
-            document.body.addEventListener('click', (event) => {
-                for(let i = 0; i < idElms.length; i++) {
-                    const elm = idElms[i];
-                    if(elm.classList.contains(DrawerMenu.ACTIVE_CLASS_NAME)) {
-                        let isInElm = false;
-                        for(let e = event.target; e !== undefined && e !== null; e = e.parentElement) {
-                            if(e === elm) {
-                                isInElm = true;
-                                break;
-                            }
-                        }
-                        if(!isInElm) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                            elm.classList.toggle(DrawerMenu.ACTIVE_CLASS_NAME);
-                        }
                     }
                 }
             });
