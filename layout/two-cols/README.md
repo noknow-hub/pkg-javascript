@@ -1,9 +1,9 @@
-# noknow-drawer-menu
+# noknow-layout-two-cols
 
 ## Install
 
 ```console
-npm install @noknow/drawer-menu
+npm i @noknow/layout-two-cols
 ```
 
 ## Usage
