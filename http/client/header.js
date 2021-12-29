@@ -1,15 +1,12 @@
 //////////////////////////////////////////////////////////////////////
 // header.js
 //////////////////////////////////////////////////////////////////////
+import { Client } from './index.js';
 
 //////////////////////////////////////////////////////////////////////
 // Class
 //////////////////////////////////////////////////////////////////////
 class Header {
-
-    static ACCEPT_LANGUAGE = 'Accept-Language';
-    static CONTENT_TYPE = 'Content-Type';
-    static MEDIA_TYPE_APPLICATION_JSON = 'application/json';
 
     //////////////////////////////////////////////////////////////////////
     // Constructor
@@ -44,7 +41,7 @@ class Header {
     //////////////////////////////////////////////////////////////////////
     SetContentType(value) {
         this.fields.push({
-            name: Header.CONTENT_TYPE,
+            name: Client.HEADER_CONTENT_TYPE,
             value: value
         });
         return this;
@@ -56,8 +53,8 @@ class Header {
     //////////////////////////////////////////////////////////////////////
     SetContentTypeApplicationJson() {
         this.fields.push({
-            name: Header.CONTENT_TYPE,
-            value: Header.MEDIA_TYPE_APPLICATION_JSON
+            name: Client.HEADER_CONTENT_TYPE,
+            value: Client.HEADER_MEDIA_TYPE_APPLICATION_JSON
         });
         return this;
     }

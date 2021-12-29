@@ -8,6 +8,7 @@
 class I18nJson {
 
     static IS_LOADING = false;
+    static IS_LOADED = false;
 
     //////////////////////////////////////////////////////////////////////
     // Constructor.
@@ -104,39 +105,22 @@ class I18nJson {
         // Check if it has been loading JSON file or not.
         await this.queuing();
 
-        // Check the localization in the local storage.
-        const needLangCodeUrlMapList = [];
-        const now = new Date();
-        const lsDate = new Date(window.localStorage.getItem(this.lsKeyDate)).getTime();
-        for(let i = 0; i < this.langCodeUrlMapList.length; i++) {
-            const langCodeUrlMap = this.langCodeUrlMapList[i];
-            const langCode = langCodeUrlMap['langCode'];
-            const url = langCodeUrlMap['url'];
-            if(lsDate > 0 && now.getTime() < lsDate) {
-                const obj = JSON.parse(window.localStorage.getItem(this.lsKeyPrefix + langCode));
-                if(obj !== undefined && obj !== null) {
-                    this.Strings[langCode] = obj;
-                } else {
-                    needLangCodeUrlMapList.push({
-                        langCode: langCode,
-                        url: url
-                    });
-                }
-            } else {
-                needLangCodeUrlMapList.push(langCodeUrlMap);
-            }
+        // Check if it has been loaded or not.
+        if(I18nJson.IS_LOADED) {
+            return;
         }
 
         // HTTP GET request.
         try {
-            for(let i = 0; i < needLangCodeUrlMapList.length; i++) {
-                const needLangCodeUrlMap = needLangCodeUrlMapList[i];
-                await this.getRequest(needLangCodeUrlMap['langCode'], needLangCodeUrlMap['url']);
+            for(let i = 0; i < this.langCodeUrlMapList.length; i++) {
+                const map = this.langCodeUrlMapList[i];
+                await this.getRequest(map['langCode'], map['url']);
             }
         } catch(err) {
             throw new Error(err);
         } finally {
             I18nJson.IS_LOADING = false;
+            I18nJson.IS_LOADED = true;
         }
     }
 

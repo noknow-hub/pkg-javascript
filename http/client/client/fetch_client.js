@@ -1,20 +1,13 @@
 //////////////////////////////////////////////////////////////////////
 // fetch_client.js
 //////////////////////////////////////////////////////////////////////
+import { Client } from '../index.js';
 import { BaseClient } from './base_client.js';
 
 //////////////////////////////////////////////////////////////////////
 // Class
 //////////////////////////////////////////////////////////////////////
 class FetchClient extends BaseClient {
-
-    static MODE_NO_CORS = 'no-cors';
-    static MODE_DEFAULT = 'cors';
-    static MODE_SAME_ORIGIN = 'same-origin';
-    static CREDENTIALS_OMIT  = 'omit';
-    static CREDENTIALS_SAME_ORIGIN  = 'same-origin';
-    static CREDENTIALS_INCLUDE  = 'include';
-
 
     //////////////////////////////////////////////////////////////////////
     // Constructor
@@ -109,7 +102,7 @@ class FetchClient extends BaseClient {
     // HTTP GET request.
     //////////////////////////////////////////////////////////////////////
     Get() {
-       this.method = BaseClient.HTTP_METHOD_GET;
+       this.method = Client.HTTP_METHOD_GET;
        return this.run();
     }
 
@@ -118,7 +111,7 @@ class FetchClient extends BaseClient {
     // HTTP POST request.
     //////////////////////////////////////////////////////////////////////
     Post() {
-       this.method = BaseClient.HTTP_METHOD_POST;
+       this.method = Client.HTTP_METHOD_POST;
        return this.run();
     }
 
@@ -127,7 +120,7 @@ class FetchClient extends BaseClient {
     // HTTP PUT request.
     //////////////////////////////////////////////////////////////////////
     Put() {
-       this.method = BaseClient.HTTP_METHOD_PUT;
+       this.method = Client.HTTP_METHOD_PUT;
        return this.run();
     }
 
@@ -136,7 +129,7 @@ class FetchClient extends BaseClient {
     // HTTP DELETE request.
     //////////////////////////////////////////////////////////////////////
     Delete() {
-       this.method = BaseClient.HTTP_METHOD_DELETE;
+       this.method = Client.HTTP_METHOD_DELETE;
        return this.run();
     }
 
@@ -145,7 +138,7 @@ class FetchClient extends BaseClient {
     // HTTP PATCH request.
     //////////////////////////////////////////////////////////////////////
     Patch() {
-       this.method = BaseClient.HTTP_METHOD_PATCH;
+       this.method = Client.HTTP_METHOD_PATCH;
        return this.run();
     }
 
@@ -153,7 +146,8 @@ class FetchClient extends BaseClient {
     //////////////////////////////////////////////////////////////////////
     // Run
     //////////////////////////////////////////////////////////////////////
-    run() {
+    async run() {
+        this.isLoading = true;
         const init = {
             method: this.method,
         };
@@ -196,7 +190,9 @@ class FetchClient extends BaseClient {
             init.signal = this.signal;
         }
 
-        return fetch(this.url, init);
+        const resp = await fetch(this.url, init);
+        this.isLoading = false;
+        return resp;
     }
 
 }

@@ -1,6 +1,7 @@
 //////////////////////////////////////////////////////////////////////
 // xhr_client.js
 //////////////////////////////////////////////////////////////////////
+import { Client } from '../index.js';
 import { BaseClient } from './base_client.js';
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +20,7 @@ class XhrClient extends BaseClient {
     // HTTP GET request.
     //////////////////////////////////////////////////////////////////////
     Get() {
-       this.method = BaseClient.HTTP_METHOD_GET;
+       this.method = Client.HTTP_METHOD_GET;
        return this.run();
     }
 
@@ -27,7 +28,7 @@ class XhrClient extends BaseClient {
     // HTTP POST request.
     //////////////////////////////////////////////////////////////////////
     Post() {
-       this.method = BaseClient.HTTP_METHOD_POST;
+       this.method = Client.HTTP_METHOD_POST;
        return this.run();
     }
 
@@ -36,7 +37,7 @@ class XhrClient extends BaseClient {
     // HTTP PUT request.
     //////////////////////////////////////////////////////////////////////
     Put() {
-       this.method = BaseClient.HTTP_METHOD_PUT;
+       this.method = Client.HTTP_METHOD_PUT;
        return this.run();
     }
 
@@ -45,7 +46,7 @@ class XhrClient extends BaseClient {
     // HTTP DELETE request.
     //////////////////////////////////////////////////////////////////////
     Delete() {
-       this.method = BaseClient.HTTP_METHOD_DELETE;
+       this.method = Client.HTTP_METHOD_DELETE;
        return this.run();
     }
 
@@ -54,7 +55,7 @@ class XhrClient extends BaseClient {
     // HTTP PATCH request.
     //////////////////////////////////////////////////////////////////////
     Patch() {
-       this.method = BaseClient.HTTP_METHOD_PATCH;
+       this.method = Client.HTTP_METHOD_PATCH;
        return this.run();
     }
 
@@ -63,6 +64,7 @@ class XhrClient extends BaseClient {
     // Run
     //////////////////////////////////////////////////////////////////////
     run() {
+        this.isLoading = true;
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
             if(this.timeout !== undefined || this.timeout !== null) {
@@ -74,14 +76,21 @@ class XhrClient extends BaseClient {
                 xhr.setRequestHeader(field.name, field.value);
             }   
             xhr.onload = () => {
+                this.isLoading = false;
                 if(xhr.status >= 200 && xhr.status < 300) {
                     resolve(xhr);
                 } else {
                     reject(xhr);
                 }   
             }   
-            xhr.onerror = () => reject(xhr);
-            xhr.ontimeout = () => reject(xhr);
+            xhr.onerror = () => {
+                this.isLoading = false;
+                reject(xhr);
+            }
+            xhr.ontimeout = () => {
+                this.isLoading = false;
+                reject(xhr);
+            }
             if(this.body === undefined || this.body === null) {
                 xhr.send();
             } else {

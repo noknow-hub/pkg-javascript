@@ -8,12 +8,6 @@ import { Header } from '../header.js';
 //////////////////////////////////////////////////////////////////////
 class BaseClient {
 
-    static HTTP_METHOD_GET = 'GET';
-    static HTTP_METHOD_POST = 'POST';
-    static HTTP_METHOD_PATCH = 'PATCH';
-    static HTTP_METHOD_PUT = 'PUT';
-    static HTTP_METHOD_DELETE = 'DELETE';
-
     //////////////////////////////////////////////////////////////////////
     // Constructor
     //////////////////////////////////////////////////////////////////////
@@ -23,6 +17,7 @@ class BaseClient {
         this.body;
         this.method;
         this.timeout;
+        this.isLoading = false;
     }
 
 
@@ -35,6 +30,14 @@ class BaseClient {
             value: value
         });
         return this;
+    }
+
+
+    //////////////////////////////////////////////////////////////////////
+    // Is Loading.
+    //////////////////////////////////////////////////////////////////////
+    IsLoading() {
+        this.isLoading;
     }
 
 
