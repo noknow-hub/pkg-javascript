@@ -37,7 +37,7 @@ class BaseClient {
     // Is Loading.
     //////////////////////////////////////////////////////////////////////
     IsLoading() {
-        this.isLoading;
+        return this.isLoading;
     }
 
 
