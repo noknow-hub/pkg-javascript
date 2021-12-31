@@ -3,22 +3,22 @@
   "bugs": {
     "url": "https://github.com/noknow-hub/pkg-javascript/issues"
   },
-  "description": "Localization with JSON files.",
-  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/i18n/json#readme",
+  "description": "HTTP URL library.",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/http/url#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "@noknow/i18n-json",
+  "name": "@noknow/http-url",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
-    "directory": "i18n/json"
+    "directory": "http/url"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
-  "version": "0.1.4"
+  "version": "0.1.0"
 }

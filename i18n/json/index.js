@@ -72,7 +72,7 @@ class I18nJson {
     // HTTP GET request.
     //////////////////////////////////////////////////////////////////////
     getRequest(langCode, url) {
-        new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             const expires = new Date();
             expires.setDate(expires.getDate() + this.lsExpiresDate);
             const xhr = new XMLHttpRequest();
