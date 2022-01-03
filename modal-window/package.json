@@ -3,22 +3,22 @@
   "bugs": {
     "url": "https://github.com/noknow-hub/pkg-javascript/issues"
   },
-  "description": "DOM library.",
-  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/dom#readme",
+  "description": "Modal window",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/modal-window#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "@noknow/dom",
+  "name": "@noknow/modal-window",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
-    "directory": "dom"
+    "directory": "modal-window"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
-  "version": "0.1.12"
+  "version": "0.1.3"
 }

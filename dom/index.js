@@ -20,6 +20,9 @@ class Dom {
     static TAG_H4 = 'H4';
     static TAG_H5 = 'H5';
     static TAG_H6 = 'H6';
+    static TAG_IMG = 'IMG';
+    static TAG_INPUT = 'INPUT';
+    static TAG_LABEL = 'LABEL';
     static TAG_LI = 'LI';
     static TAG_P = 'P';
     static TAG_SMALL = 'SMALL';
@@ -43,6 +46,30 @@ class Dom {
 
 
     //////////////////////////////////////////////////////////////////////
+    // New HTML element for A.
+    //////////////////////////////////////////////////////////////////////
+    static NewHtmlElementForA(href) {
+        return new Element(document.createElement(Dom.TAG_A)).SetAttrList([{ name: 'href', value: href }]);
+    }
+
+
+    //////////////////////////////////////////////////////////////////////
+    // New HTML element for IMG.
+    //////////////////////////////////////////////////////////////////////
+    static NewHtmlElementForImg(src, alt = '') {
+        return new Element(document.createElement(Dom.TAG_IMG)).SetAttrList([{ name: 'src', value: src }, { name: 'alt', value: alt }]);
+    }
+
+
+    //////////////////////////////////////////////////////////////////////
+    // New HTML element for INPUT.
+    //////////////////////////////////////////////////////////////////////
+    static NewHtmlElementForInput(type) {
+        return new Element(document.createElement(Dom.TAG_INPUT)).SetAttrList([{ name: 'type', value: type }]);
+    }
+
+
+    //////////////////////////////////////////////////////////////////////
     // New HTML element NS.
     //////////////////////////////////////////////////////////////////////
     static NewHtmlElementNs(nameSpaceUri, qualifiedName) {
@@ -54,8 +81,17 @@ class Dom {
     // New HTML element NS for SVG.
     //////////////////////////////////////////////////////////////////////
     static NewHtmlElementNsSvg() {
-        return new Element(document.createElementNS(this.nameSpaceUriSvg, this.tagSvg.toLowerCase()));
+        return new Element(document.createElementNS(Dom.NAME_SPACE_URI_SVG, Dom.TAG_SVG.toLowerCase()));
     }
+
+
+    //////////////////////////////////////////////////////////////////////
+    // New HTML element NS for USE.
+    //////////////////////////////////////////////////////////////////////
+    static NewHtmlElementNsUse() {
+        return new Element(document.createElementNS(Dom.NAME_SPACE_URI_SVG, Dom.TAG_USE.toLowerCase()));
+    }
+
 
     //////////////////////////////////////////////////////////////////////
     // Set attribute list to the specified element.

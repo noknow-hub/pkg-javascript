@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+/**********************************************************************
+ .nkw-modal-window
+
+ [HTML]
+ <button type="button" data-modal-target="MODAL_ID">
+
+ <div class="nkw-modal-window" data-modal-id="MODAL_ID">
+   <div class="[no-footer min-height full-screen]">
+     <div class="header">
+       <h5 id="deleteProjectModalTitle">TITLE</h5>
+       <button name="close" type="button" data-modal-action="close">
+         <svg>ICON</svg>
+       </button>
+     </div>
+     <div class="body">
+       <p>BODY</p>
+     </div>
+     <div class="footer">
+       <button name="close" type="button" data-modal-action="close">CLOSE</button>
+       <button name="submit" type="button" data-modal-action="submit">SUBMIT</button>
+     </div>
+   </div>
+ </div>
+**********************************************************************/
+.nkw-modal-window {
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: -webkit-flex;
+    display: flex;
+    height: 100%;
+    -webkit-justify-content: center;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    transition: all 0.3s;
+    visibility: hidden;
+    width: 100%;
+    z-index: 10;
+}
+.nkw-modal-window.active {
+    opacity: 1;
+    visibility: visible;
+}
+.nkw-modal-window > div {
+    background-color: #fff;
+    border-radius: 7px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -3px 3px 5px rgba(0, 0, 0, 0.1);
+    height: 90%;
+    max-height: 600px;
+    max-width: 800px;
+    transition: all 0.5s;
+    transform: translateY(10px);
+    width: 90%;
+}
+.nkw-modal-window.active > div {
+    transform: translateY(0);
+}
+.nkw-modal-window .no-footer {
+    height: calc(100% - 3.0em - 50px);
+}
+.nkw-modal-window .min-height {
+    height: unset;
+    max-height: unset;
+}
+.nkw-modal-window .full-width {
+    max-width: unset;
+    width: 99%;
+}
+.nkw-modal-window .full-screen {
+    height: 99%;
+    max-height: unset;
+    max-width: unset;
+    width: 99%;
+}
+.nkw-modal-window > div > .header {
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: inherit;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: flex;
+    height: 50px;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: 1.0em;
+    width: 100%;
+}
+.nkw-modal-window > div > .header > h5 {
+    font-size: var(--nkw-font-size-s);
+    font-weight: bold;
+}
+@media screen and (min-width: 768px) {
+    .nkw-modal-window > div > .header > h5 {
+        font-size: var(--nkw-font-size-m);
+    }
+}
+@media screen and (min-width: 1024px) {
+    .nkw-modal-window > div > .header > h5 {
+        font-size: var(--nkw-font-size-l);
+    }
+}
+.nkw-modal-window > div > .header > button {
+    background-color: unset;
+    border: none;
+    cursor: pointer;
+    height: 28px;
+    outline: none;
+    padding: 0;
+    width: 28px;
+}
+.nkw-modal-window > div > .header > button > svg {
+    border-radius: 7px;
+    height: 100%;
+    width: 100%;
+}
+.nkw-modal-window > div > .body {
+    background-color: inherit;
+    font-size: var(--nkw-font-size-s);
+    height: calc(100% - 3.0em - 100px);
+    margin: 1.5em 1.0em;
+    overflow-y: scroll;
+}
+@media screen and (min-width: 768px) {
+    .nkw-modal-window > div > .body {
+        font-size: var(--nkw-font-size-m);
+    }
+}
+@media screen and (min-width: 1024px) {
+    .nkw-modal-window > div > .body {
+        font-size: var(--nkw-font-size-l);
+    }
+}
+.nkw-modal-window > div > .footer {
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: inherit;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: flex;
+    height: 50px;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 1.0em;
+    width: 100%;
+}
+.nkw-modal-window > div > .footer > button {
+    border: none;
+    border-radius: 7px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: var(--nkw-font-size-s);
+    font-weight: bold;
+    line-height: var(--nkw-line-height);
+    margin: 0 0.5em;
+    outline: none;
+    padding: 7px 21px;
+    transition: all 0.3s;
+}
+@media screen and (min-width: 768px) {
+    .nkw-modal-window > div > .footer > button {
+        font-size: var(--nkw-font-size-m);
+    }
+}
+@media screen and (min-width: 1024px) {
+    .nkw-modal-window > div > .footer > button {
+        font-size: var(--nkw-font-size-l);
+    }
+}
+.nkw-modal-window > div > .footer > button:hover {
+    opacity: 0.7;
+}
