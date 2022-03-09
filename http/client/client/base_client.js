@@ -18,6 +18,7 @@ class BaseClient {
         this.method;
         this.timeout;
         this.isLoading = false;
+        this.isLoadingManually = false;
     }
 
 
@@ -37,7 +38,7 @@ class BaseClient {
     // Is Loading.
     //////////////////////////////////////////////////////////////////////
     IsLoading() {
-        return this.isLoading;
+        return this.isLoading || this.isLoadingManually;
     }
 
 
@@ -46,6 +47,15 @@ class BaseClient {
     //////////////////////////////////////////////////////////////////////
     SetBody(body) {
         this.body = body;
+        return this;
+    }
+
+
+    //////////////////////////////////////////////////////////////////////
+    // Set loading flag manually.
+    //////////////////////////////////////////////////////////////////////
+    SetLoading(flag) {
+        this.isLoadingManually = flag;
         return this;
     }
 
