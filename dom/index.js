@@ -33,7 +33,7 @@ class Dom {
     static TAG_TD = 'TD';
     static TAG_TH = 'TH';
     static TAG_TR = 'TR';
-    static TAG_Ul = 'UL';
+    static TAG_UL = 'UL';
     static TAG_USE = 'USE';
 
 
