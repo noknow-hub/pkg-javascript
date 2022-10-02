@@ -8,13 +8,27 @@
 class I18nJson {
 
     static IS_LOADING = false;
-    static IS_LOADED = false;
 
     //////////////////////////////////////////////////////////////////////
     // Constructor.
+    //
+    // @param
+    //     langCodeUrlMapList: array:
+    //         [
+    //             {
+    //                 langCode: 'en',
+    //                 url: '/i18n/en.json'
+    //             },
+    //             {
+    //                 langCode: 'ja',
+    //                 url: '/i18n/ja.json'
+    //             }
+    //         ]
+    //     timestamp: string: 2022102356012
     //////////////////////////////////////////////////////////////////////
-    constructor(langCodeUrlMapList) {
+    constructor(langCodeUrlMapList, timestamp = null) {
         this.langCodeUrlMapList = langCodeUrlMapList;
+        this.timestamp = timestamp;
         this.lsKeyPrefix = 'I18n.';
         this.lsKeyDate = this.lsKeyPrefix + 'date';
         this.lsExpiresDate = 3;
@@ -73,8 +87,14 @@ class I18nJson {
     //////////////////////////////////////////////////////////////////////
     getRequest(langCode, url) {
         return new Promise((resolve, reject) => {
-            const expires = new Date();
-            expires.setDate(expires.getDate() + this.lsExpiresDate);
+            let lsDateVal;
+            if(this.timestamp !== null) {
+                lsDateVal = this.timestamp.toString();
+            } else {
+                const val = new Date();
+                val.setDate(val.getDate() + this.lsExpiresDate);
+                lsDateVal = val.toString();
+            }
             const xhr = new XMLHttpRequest();
             xhr.open('GET', url);
             xhr.onload = () => {
@@ -83,7 +103,7 @@ class I18nJson {
                     if(resJson !== undefined && resJson !== null) {
                         this.Strings[langCode] = resJson;
                         window.localStorage.setItem(this.lsKeyPrefix + langCode, JSON.stringify(resJson));
-                        window.localStorage.setItem(this.lsKeyDate, expires.toString());
+                        window.localStorage.setItem(this.lsKeyDate, lsDateVal);
                         resolve();
                     } else {
                         reject('Invalid a json file. url: ' + url);
@@ -105,9 +125,18 @@ class I18nJson {
         // Check if it has been loading JSON file or not.
         await this.queuing();
 
-        // Check if it has been loaded or not.
-        if(I18nJson.IS_LOADED) {
-            return;
+        // Check if it has been loaded in the local storage or not.
+        if(this.timestamp !== null) {
+            const lsVal = window.localStorage.getItem(this.lsKeyDate);
+            if(this.timestamp === lsVal) {
+                return;
+            }
+        } else {
+            const lsVal = new Date(window.localStorage.getItem(this.lsKeyDate));
+            const now = new Date();
+            if(now.getTime() < lsVal.getTime()) {
+                return;
+            }
         }
 
         // HTTP GET request.
@@ -120,7 +149,6 @@ class I18nJson {
             throw new Error(err);
         } finally {
             I18nJson.IS_LOADING = false;
-            I18nJson.IS_LOADED = true;
         }
     }
 
@@ -136,8 +164,9 @@ class I18nJson {
                     break;
                 }
             }
+        } else {
+            I18nJson.IS_LOADING = true;
         }
-        I18nJson.IS_LOADING = true;
     }
 
 
