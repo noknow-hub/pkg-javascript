@@ -3,22 +3,25 @@
   "bugs": {
     "url": "https://github.com/noknow-hub/pkg-javascript/issues"
   },
-  "description": "HTTP client library.",
-  "homepage": "https://github.com/noknow-hub/pkg-javascript/blob/main/http/client#readme",
+  "description": "Java Script utilities",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/README.md",
   "license": "MIT",
   "main": "index.js",
-  "name": "@noknow/http-client",
+  "name": "@noknow/javascript-string",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
-    "directory": "http/client"
+    "directory": "string"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
-  "version": "0.1.9"
+  "exports": {
+    "import": "./*"
+  },
+  "version": "0.1.0"
 }
