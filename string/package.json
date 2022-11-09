@@ -4,7 +4,7 @@
     "url": "https://github.com/noknow-hub/pkg-javascript/issues"
   },
   "description": "Java Script utilities",
-  "homepage": "https://github.com/noknow-hub/pkg-javascript/README.md",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/tree/main/string",
   "license": "MIT",
   "main": "index.js",
   "name": "@noknow/javascript-string",
@@ -23,5 +23,5 @@
   "exports": {
     "import": "./*"
   },
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
