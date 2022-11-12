@@ -1,0 +1,27 @@
+{
+  "author": "noknow",
+  "bugs": {
+    "url": "https://github.com/noknow-hub/pkg-javascript/issues"
+  },
+  "description": "JavaScript standard library: string",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/tree/main/string",
+  "license": "MIT",
+  "main": "string.js",
+  "name": "@noknow/standard-library-string",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
+    "directory": "standard-library/string"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "exports": {
+    "import": "./*"
+  },
+  "version": "0.1.0"
+}
