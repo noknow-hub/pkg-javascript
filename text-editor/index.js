@@ -4,7 +4,7 @@
 
 class TextEditor {
 
-    static CLASS_NAME = 'text-editor':
+    static CLASS_NAME = 'text-editor';
     static OPTION_KEY_STATUS_BAR = 'status-bar';
     static OPTION_KEY_STATUS_BAR_NUM_OF_CHARS = 'num-of-chars';
     static OPTION_KEY_STATUS_BAR_NUM_OF_CHARS_TEXT = 'num-of-chars-text';
