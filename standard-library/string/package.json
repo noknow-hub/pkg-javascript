@@ -4,9 +4,9 @@
     "url": "https://github.com/noknow-hub/pkg-javascript/issues"
   },
   "description": "JavaScript standard library: string",
-  "homepage": "https://github.com/noknow-hub/pkg-javascript/tree/main/string",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/tree/main/standard-library/string",
   "license": "MIT",
-  "main": "string.js",
+  "main": "index.js",
   "name": "@noknow/standard-library-string",
   "publishConfig": {
     "access": "public"
@@ -21,7 +21,7 @@
   },
   "type": "module",
   "exports": {
-    "import": "./*"
+    "import": "./index.js"
   },
-  "version": "0.1.0"
+  "version": "0.1.2"
 }
