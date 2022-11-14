@@ -1,0 +1,27 @@
+{
+  "author": "noknow",
+  "bugs": {
+    "url": "https://github.com/noknow-hub/pkg-javascript/issues"
+  },
+  "description": "JavaScript standard library: Range",
+  "homepage": "https://github.com/noknow-hub/pkg-javascript/tree/main/standard-library/range",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "@noknow/standard-library-range",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noknow-hub/pkg-javascript.git",
+    "directory": "standard-library/range"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "exports": {
+    "import": "./index.js"
+  },
+  "version": "0.1.0"
+}
