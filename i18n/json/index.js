@@ -126,17 +126,19 @@ class I18nJson {
         await this.queuing();
 
         // Check if it has been loaded in the local storage or not.
-        if(this.timestamp !== null) {
-            const lsVal = window.localStorage.getItem(this.lsKeyDate);
-            if(this.timestamp === lsVal) {
-                return;
+        const lsValDateStr = window.localStorage.getItem(this.lsKeyDate);
+        const lsValDate = new Date(window.localStorage.getItem(this.lsKeyDate));
+        const now = new Date();
+        if((this.timestamp !== null && this.timestamp === lsValDateStr) || now.getTime() < lsValDate.getTime()) {
+            for(let i = 0; i < this.langCodeUrlMapList.length; i++) {
+                const langCode = this.langCodeUrlMapList[i].langCode;
+                const s =  window.localStorage.getItem(`${this.lsKeyPrefix}${langCode}`);
+                if(s === undefined || s === null) {
+                    continue;
+                }
+                this.Strings[langCode] = JSON.parse(s);
             }
-        } else {
-            const lsVal = new Date(window.localStorage.getItem(this.lsKeyDate));
-            const now = new Date();
-            if(now.getTime() < lsVal.getTime()) {
-                return;
-            }
+            return;
         }
 
         // HTTP GET request.
