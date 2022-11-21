@@ -16,6 +16,14 @@ class Editor {
 
 
     //////////////////////////////////////////////////////////////////////
+    // Get the HTML
+    //////////////////////////////////////////////////////////////////////
+    GetHtml() {
+        return this.editor.innerHTML;
+    }
+
+
+    //////////////////////////////////////////////////////////////////////
     // Run
     //////////////////////////////////////////////////////////////////////
     Run() {
@@ -27,6 +35,7 @@ class Editor {
 
 
     beforeinputEvent(event) {
+return;
 console.log(event);
 event.stopPropagation();
 
@@ -76,7 +85,7 @@ console.log(ranges);
     // Input event
     //////////////////////////////////////////////////////////////////////
     inputEvent(event) {
-console.log(event);
+//console.log(event);
         event.preventDefault();
 
 //console.log(window.clipboardData);
@@ -107,15 +116,6 @@ console.log(event);
         } else if(event.inputType === 'deleteContentBackward') {
             // Optimize editor content
             this.optimizeEditorContent();
-
-/*
-            const sel = window.getSelection();
-            const range = sel.getRangeAt(0);
-            const aNode = sel.anchorNode;
-            const parentElm = aNode.parentElement;
-            const parentElmNext = parentElm.nextElementSibling;
-console.log('parentElement: ', aNode.parentElement);
-*/
 
 /*
             if(parentElm != null) {
@@ -191,14 +191,6 @@ console.log(newNodes);
                     } 
                 }
             }
-*/
-
-/*
-console.log(aNode, aNode);
-console.log('nodeName: ', aNode.nodeName);
-console.log('nextSibling: ', aNode.nextSibling);
-console.log('parentElement: ', aNode.parentElement);
-console.log('nextElementSibling: ', aNode.parentElement.nextElementSibling);
 */
         }
 
